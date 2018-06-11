@@ -1,4 +1,5 @@
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -6,17 +7,16 @@ import javax.persistence.Persistence;
 
 public class Document {
 	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("doc");
 		try {
 			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 		}
 		finally {
-		if (connection != null) {
-		    connection.close();
+
 		  }
 		}
-	}
 	
 	public void ajoutCentre(Centre centre) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("doc");
