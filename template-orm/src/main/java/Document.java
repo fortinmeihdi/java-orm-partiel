@@ -23,7 +23,7 @@ public class Document {
 		EntityManager entityManager = emf.createEntityManager();
 		try {
 			entityManager.getTransaction().begin();
-			entityManager.persist(centre);
+			centre =  (Centre) entityManager.createQuery("insert into centre(centre_nom, nationalité) values ('cnrs', 'France')");
 			entityManager.getTransaction().commit();
 		}
 		finally {
@@ -37,7 +37,7 @@ public class Document {
 		EntityManager entityManager = emf.createEntityManager();
 		try {
 			entityManager.getTransaction().begin();
-			entityManager.persist(auteur);
+			auteur =  (Auteur) entityManager.createQuery("insert into auteur(auteur_nom, spécialité) values ('Hubert Reeves', 'Astrophysique')");
 			entityManager.getTransaction().commit();
 			}
 		finally {
@@ -51,7 +51,7 @@ public class Document {
 		EntityManager entityManager = emf.createEntityManager();
 		try {
 			entityManager.getTransaction().begin();
-			entityManager.persist(article);
+		    article =  (Article) entityManager.createQuery("insert into auteur(article_nom, contenu) values ('Patience dans l’azur', 'Astrophy')");
 			entityManager.getTransaction().commit();
 			}
 		finally {
